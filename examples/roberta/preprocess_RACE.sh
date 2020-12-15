@@ -20,7 +20,7 @@ wget -N 'https://dl.fbaipublicfiles.com/fairseq/gpt2_bpe/encoder.json'
 wget -N 'https://dl.fbaipublicfiles.com/fairseq/gpt2_bpe/vocab.bpe'
 wget -N 'https://dl.fbaipublicfiles.com/fairseq/gpt2_bpe/dict.txt'
 
-SPLITS="train dev test-middle test-high"
+SPLITS="train test"
 INPUT_TYPES="input0 input1 input2 input3 input4"
 for INPUT_TYPE in $INPUT_TYPES
 do
