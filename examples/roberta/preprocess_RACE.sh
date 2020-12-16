@@ -44,8 +44,8 @@ for INPUT_TYPE in $INPUT_TYPES
       fairseq-preprocess \
         --only-source \
         --trainpref "$RACE_DATA_FOLDER/train.$INPUT_TYPE.bpe" \
-        --validpref "$RACE_DATA_FOLDER/dev.$INPUT_TYPE.bpe" \
-        --testpref "$RACE_DATA_FOLDER/test-middle.$INPUT_TYPE.bpe,$RACE_DATA_FOLDER/test-high.$INPUT_TYPE.bpe" \
+        --validpref "$RACE_DATA_FOLDER/test.$INPUT_TYPE.bpe" \
+        --testpref "$RACE_DATA_FOLDER/test.$INPUT_TYPE.bpe" \
         --destdir "$OUT_DATA_FOLDER/$INPUT_TYPE" \
         --workers 10 \
         --srcdict dict.txt;
@@ -54,6 +54,4 @@ done
 rm -rf "$OUT_DATA_FOLDER/label"
 mkdir -p "$OUT_DATA_FOLDER/label"
 cp "$RACE_DATA_FOLDER/train.label" "$OUT_DATA_FOLDER/label/"
-cp "$RACE_DATA_FOLDER/dev.label" "$OUT_DATA_FOLDER/label/valid.label"
-cp "$RACE_DATA_FOLDER/test-middle.label" "$OUT_DATA_FOLDER/label/test.label"
-cp "$RACE_DATA_FOLDER/test-high.label" "$OUT_DATA_FOLDER/label/test1.label"
+cp "$RACE_DATA_FOLDER/test.label" "$OUT_DATA_FOLDER/label/test1.label"
